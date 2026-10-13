@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/Graph-Machine-Learning-Group/grin",
+  "commit": "4a28afbb092600b6e6abeeabaaf67e87dbd1ed6e",
+  "paper": "Filling the Gaps: Multivariate Time Series Imputation by Graph Neural Networks",
+  "authors": [
+    "Andrea Cini",
+    "Ivan Marisca",
+    "Cesare Alippi"
+  ],
+  "changes": "Source comments removed; only GRIN inference dependencies retained."
+}

@@ -1,8 +1,0 @@
-{
-  "reading_kind": "measured",
-  "stations": ["A", "B", "C"],
-  "readings": {"A": 37.0, "B": 38.0},
-  "threshold": 35.0,
-  "noise": 1.0,
-  "faults": 1
-}

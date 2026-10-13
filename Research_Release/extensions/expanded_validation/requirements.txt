@@ -1,8 +1,0 @@
-numpy==2.5.3
-pandas==3.0.6
-scipy==1.18.1
-matplotlib==3.11.2
-PyMuPDF==1.28.2
-rdata==1.1.0
-xarray==2026.9.0
-typing_extensions==4.16.0
