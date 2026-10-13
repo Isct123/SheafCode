@@ -61,30 +61,15 @@ foreach ($region in $regions) {
     }
     "Finished $region $(Get-Date -Format o)" | Out-File -LiteralPath $statusPath -Append
 }
-& $pythonExe scripts/build_report.py
-if ($LASTEXITCODE -ne 0) { throw 'Report generation failed. Experiment outputs remain saved.' }
 if ($failures -eq 0) {
-    foreach ($script in @('finalize_results.py','run_weather.py','replay_interval_details.py','run_sensor_repair.py','build_technical_extensions.py','build_final_report.py')) {
+    foreach ($script in @('finalize_results.py','run_weather.py','replay_interval_details.py','run_sensor_repair.py')) {
         $ErrorActionPreference='Continue'
         & $pythonExe (Join-Path 'scripts' $script)
         $stageExitCode=$LASTEXITCODE
         $ErrorActionPreference='Stop'
         if ($stageExitCode -ne 0) { throw "Supplementary audit failed: $script. Existing outputs remain saved." }
     }
-    $tectonic=Join-Path $workspaceRoot 'audit_tools\tectonic\tectonic.exe'
-    if (Test-Path -LiteralPath $tectonic) {
-        $env:TECTONIC_CACHE_DIR=Join-Path $workspaceRoot 'audit_tools\tex_cache'
-        $ErrorActionPreference='Continue'
-        & $tectonic --only-cached --keep-logs docs/SCIENTIFIC_RESULTS_AND_AUDIT.tex
-        $stageExitCode=$LASTEXITCODE
-        $ErrorActionPreference='Stop'
-        if ($stageExitCode -ne 0) { throw 'Scientific report PDF failed to compile; Markdown and results remain saved.' }
-        & $pythonExe scripts/build_final_report.py
-        if ($LASTEXITCODE -ne 0) { throw 'Scientific handoff archive failed.' }
-    }
+
 }
 "Finished $(Get-Date -Format o); failures=$failures" | Out-File -LiteralPath $statusPath -Append
-Write-Host 'Finished. Read Research_Release/docs/OVERNIGHT_REPORT.md and logs/run_status.txt.'
-Write-Host 'Final scientific audit: Research_Release/docs/SCIENTIFIC_RESULTS_AND_AUDIT.md'
-Write-Host 'Results handoff: Research_Release/Scientific_Results.zip'
 if ($failures -gt 0) { exit 1 }

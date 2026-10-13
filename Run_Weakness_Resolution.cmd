@@ -9,5 +9,5 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-echo Completed. Open IRIS_Submission_Recent_Data\Upload_Files\SheafCode_Full_Empirical_Manuscript.pdf
+echo Research validation completed.
 pause

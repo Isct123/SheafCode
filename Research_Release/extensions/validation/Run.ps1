@@ -20,7 +20,6 @@ try {
         $steps+=,@('-m','pytest','extensions/validation/test_graph.py','-q','-p','no:cacheprovider')
         $steps+=,@('-u','extensions/validation/graph_benchmark.py')
     }
-    $steps+=,@('-u','extensions/validation/report.py')
     foreach ($step in $steps) {
         ('Stage '+($step -join ' ')+' '+(Get-Date -Format o)) | Out-File 'validation_logs\status.txt' -Append
         $ErrorActionPreference='Continue'

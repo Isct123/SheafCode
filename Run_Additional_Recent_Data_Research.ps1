@@ -25,7 +25,7 @@ if ((Test-Path -LiteralPath $no2Archive) -and ((-not $acquisitionComplete) -or (
     & $researchPython -u (Join-Path $researchScripts 'acquire_pmno2.py')
     if ($LASTEXITCODE -ne 0) { throw 'PM2.5/NO2 acquisition failed. Review its source ledger.' }
 }
-foreach ($researchStage in @('run.py', 'random_forest.py', 'audit_report.py', 'plot_results.py', 'package.py')) {
+foreach ($researchStage in @('run.py', 'random_forest.py',  'plot_results.py')) {
     & $researchPython -u (Join-Path $researchScripts $researchStage)
     if ($LASTEXITCODE -ne 0) { throw "Stage failed: $researchStage. Successful stages remain available for resume." }
 }

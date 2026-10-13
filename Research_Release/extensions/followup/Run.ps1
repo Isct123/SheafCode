@@ -32,9 +32,7 @@ try {
         @('-u','extensions/followup/neural.py'),
         @('-u','extensions/followup/external.py'),
         @('-u','extensions/strong_baselines/run.py'),
-        @('-u','extensions/strong_baselines/horizon_stress.py'),
-        @('-u','extensions/strong_baselines/report.py'),
-        @('-u','extensions/followup/finalize.py')
+        @('-u','extensions/strong_baselines/horizon_stress.py')
     )) {
         $ErrorActionPreference='Continue'
         & $pythonExe @step *>&1 | Tee-Object -FilePath 'followup_logs\run.log' -Append

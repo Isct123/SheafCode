@@ -16,8 +16,7 @@ try {
         @('-u','extensions/followup/run_constrained.py','--hours',"$Hours"),
         @('-u','extensions/followup/matched_alerts.py'),
         @('-u','extensions/followup/benchmark_budget_dual.py'),
-        @('-u','extensions/followup/verify_certificate_study.py'),
-        @('-u','extensions/followup/report_constrained.py')
+        @('-u','extensions/followup/verify_certificate_study.py')
     )) {
         $ErrorActionPreference='Continue'
         & $pythonExe @step *>&1 | Tee-Object -FilePath 'constrained_logs\run.log' -Append

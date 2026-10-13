@@ -101,7 +101,7 @@ def main():
         f=intervals[(intervals.context_loss==row.context_loss)&(intervals.method==row.method)]
         check('interval_denominator/'+str(i), len(f)==row.cases)
         check('interval_coverage/'+str(i), abs(f.covered.mean()-row.coverage)<1e-12)
-    preserved={str(p.relative_to(ROOT)):sha(p) for p in [ROOT/'Final_Manuscript/SheafCode_Validated_Manuscript.pdf',ROOT/'IRIS_Submission_Recent_Data/Upload_Files/SheafCode_Recent_Research_Paper.pdf']}
+    preserved={}
     save('AUDIT.json',{'status':'passed','check_count':len(checks),'checks':checks,'station_days_replayed':len(records)//7,
          'source_to_tensor_checked':True,'preserved_documents':preserved,'scope':'Internal source and independent inference audit, not independent refitting or formal proof verification'})
     print('UK audit passed:',len(checks),'checks;',len(records)//7,'all-method station-days replayed',flush=True)

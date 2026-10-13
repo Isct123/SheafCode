@@ -47,5 +47,6 @@ for station in ['BTM','Jayanagar','Peenya','SilkBoard']:
         if len(pair):
             diff=np.abs(pair.iloc[:,0]-pair.iloc[:,1]);stats[f'{station}/{pol}']=dict(n=len(pair),correlation=float(pair.corr().iloc[0,1]),median_abs_difference=float(diff.median()),p95_abs_difference=float(diff.quantile(.95)))
 out=dict(replays=record,overlapping_index_raw_exports=stats,all_replays_pass=all(r['passed'] for r in record))
-(BASE/'Final_Manuscript/audit/reconstruction_replay.json').write_text(json.dumps(out,indent=2))
+(BASE/'Research_Release/audit_results').mkdir(parents=True, exist_ok=True)
+(BASE/'Research_Release/audit_results/reconstruction_replay.json').write_text(json.dumps(out,indent=2))
 print('replay checks',len(record),'passed',sum(r['passed'] for r in record));print(json.dumps(stats,indent=1))

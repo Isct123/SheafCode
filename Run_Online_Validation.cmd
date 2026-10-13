@@ -6,5 +6,5 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-echo Completed. Open Final_Manuscript\SheafCode_Validated_Manuscript.pdf
+echo Research stages completed.
 pause

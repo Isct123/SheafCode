@@ -12,11 +12,7 @@ try {
     'Started '+(Get-Date -Format o) | Out-File 'final_verification\status.txt' -Append
     foreach ($step in @(
         @('-m','pytest','tests','extensions/functional','extensions/structured','extensions/strong_baselines','extensions/followup','-q','-p','no:cacheprovider'),
-        @('-u','extensions/followup/review_expanded.py'),
-        @('-u','extensions/followup/report_constrained.py'),
-        @('-u','extensions/followup/build_figure_pack.py'),
-        @('-u','extensions/followup/finalize.py'),
-        @('-u','extensions/followup/final_readiness.py')
+        @('-u','extensions/followup/review_expanded.py')
     )) {
         $ErrorActionPreference='Continue'
         & $pythonExe @step *>&1 | Tee-Object -FilePath 'final_verification\run.log' -Append

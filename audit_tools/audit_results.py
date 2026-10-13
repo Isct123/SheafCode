@@ -7,8 +7,8 @@ from scipy.stats import wilcoxon, mannwhitneyu, spearmanr
 BASE = Path(__file__).resolve().parents[1]
 SOURCE = BASE / 'evidence/sheafcode_iris_2026_final/sheafcode_iris_2026_final'
 TABLES = BASE / 'evidence/sheafcode_iris_2026_final_result_tables/sheafcode_iris_2026_final/results'
-OUT = BASE / 'Final_Manuscript'
-OUT.mkdir(exist_ok=True)
+OUT = BASE / 'Research_Release/audit_results'
+OUT.mkdir(parents=True, exist_ok=True)
 FR = json.loads((SOURCE / 'results/FINAL_RESULTS.json').read_text())
 REGIONS = list(FR['regions'])
 LABELS = dict(zip(REGIONS, ['Region A','Region B','Region C','Region D','Region E','Region F','National','Raw replication 1','Raw replication 2']))
