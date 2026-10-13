@@ -1,0 +1,22 @@
+[
+  {
+    "file": "SUBMISSION_WORKSPACE/Station_Location_Graph/build_map_image.py",
+    "line": 63,
+    "notice": "'width':1800,'height':2200,'copyright':'\u00a9 OpenStreetMap contributors \u00b7 Map data: ODbL \u00b7 https://www.openstreetmap.org/copyright',"
+  },
+  {
+    "file": "SUBMISSION_WORKSPACE/Station_Location_Graph/build_map_image.py",
+    "line": 119,
+    "notice": "fig.text(.045,.07,'Basemap '+textwrap.fill(MAP['copyright'],width=180),fontsize=9,color=original.MUTED)"
+  },
+  {
+    "file": "SUBMISSION_WORKSPACE/Station_Location_Graph/build_map_image.py",
+    "line": 124,
+    "notice": "fig.text(.07,.035,textwrap.fill('Basemap '+MAP['copyright'],width=105),fontsize=8,color=original.MUTED)"
+  },
+  {
+    "file": "SUBMISSION_WORKSPACE/Station_Location_Graph/build_map_image.py",
+    "line": 146,
+    "notice": "Map data and attribution: https://www.openstreetmap.org/copyright"
+  }
+]
